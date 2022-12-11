@@ -1,0 +1,9 @@
+{
+    "rules": {
+        "indent": [true, "spaces", 4],
+        "max-line-length": {
+            "severity": "warn",
+            "options": [120]
+        }
+    }
+}
