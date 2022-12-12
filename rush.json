@@ -1,0 +1,32 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+    "rushVersion": "5.86.0",
+    "pnpmVersion": "6.7.1",
+    "nodeSupportedVersionRange": ">=12.13.0 <13.0.0 || >=14.15.0 <15.0.0 || >=16.13.0 <17.0.0",
+    "ensureConsistentVersions": true,
+    "gitPolicy": {},
+    "repository": {
+        "url": "https://github.com/tryvols/janko"
+    },
+    "eventHooks": {
+        "preRushInstall": [],
+        "postRushInstall": [],
+        "preRushBuild": [],
+        "postRushBuild": []
+    },
+    "variants": [],
+    "projects": [
+        {
+            "packageName": "janko",
+            "projectFolder": "packages/janko"
+        },
+        {
+            "packageName": "janko-location-middleware",
+            "projectFolder": "packages/location-middleware"
+        },
+        {
+            "packageName": "janko-schedule-middleware",
+            "projectFolder": "packages/schedule-middleware"
+        }
+    ]
+}

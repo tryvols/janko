@@ -3,7 +3,7 @@ import {
     HandlerCompleteData,
     NextMiddleware,
     Middleware
-} from "../core";
+} from "janko";
 import {
     LOCATION_MIDDLEWARE_STORAGE_ADAPTER,
     LOCATION_MIDDLEWRE_METADATA_ACCESSOR,

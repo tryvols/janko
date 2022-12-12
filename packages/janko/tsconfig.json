@@ -9,7 +9,7 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "esModuleInterop": true,
-      "outDir": "dist/",
+      "outDir": "build/",
       "moduleResolution": "node"
     }
 }
