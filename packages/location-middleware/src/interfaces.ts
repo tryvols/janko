@@ -1,5 +1,5 @@
 import { interfaces } from "inversify";
-import { HandlerCompleteData, IHandlerResult } from "../core";
+import { HandlerCompleteData, IHandlerResult } from "janko";
 import { NewLocation } from "./constants";
 
 export type Location = string | number;

@@ -1,4 +1,4 @@
-import { TelegramBotApplication } from "../repos/core/application";
+import { TelegramBotApplication } from "../src";
 import { TestController } from "./test-controller";
 
 function bootstrap() {

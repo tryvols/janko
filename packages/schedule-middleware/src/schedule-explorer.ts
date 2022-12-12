@@ -32,7 +32,7 @@ import {
     CONTROLLER,
     METADATA_SCANNER,
     MetadataScanner
-} from "../core";
+} from "janko";
 import {
     SchedulerType,
     SCHEDULER_METADATA_ACCESSOR,

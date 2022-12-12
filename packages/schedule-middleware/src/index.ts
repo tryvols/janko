@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 export {
     SCHEDULER_REGISTRY,
     CronExpression

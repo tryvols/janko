@@ -1,5 +1,5 @@
 import { Container, inject, injectable } from "inversify";
-import { Middleware } from "../core";
+import { Middleware } from "janko";
 import {
     SCHEDULE_EXPLORER,
     SCHEDULER_METADATA_ACCESSOR,

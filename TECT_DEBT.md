@@ -13,3 +13,6 @@
 
 ## Implement monorepo
 - It's useful to have all stardard repos at one place
+
+## Iterare package migration
+- Move iterations to use iterare package (this will optimize time spending on chain iterations)

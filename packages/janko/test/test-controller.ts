@@ -1,36 +1,34 @@
 import { inject } from "inversify";
 import TelegramAPI from "node-telegram-bot-api";
-import { TELEGRAM_API } from "../repos/core/constants";
 import {
-  AnimationHandler,
-  AudioHandler,
-  CallbackQueryHandler,
-  ChatMemberUpdatedHandler,
-  ContactHandler,
-  Controller,
-  DocumentHandler,
-  GroupChatCreatedHandler,
-  LeftChatMemberHandler,
-  LocationHandler,
-  MessageHandler,
-  NewChatMembersHandler,
-  NewChatPhotoHandler,
-  PhotoHandler,
-  TextHandler,
-  VoiceHandler
-} from "../repos/core/decorators";
-import {
-  CallbackQueryHandlerProps,
-  ChatMemberHandlerProps,
-  MessageMetadataHandlerProps
-} from "../repos/core/interfaces";
+    TELEGRAM_API,
+    AnimationHandler,
+    AudioHandler,
+    CallbackQueryHandler,
+    ChatMemberUpdatedHandler,
+    ContactHandler,
+    Controller,
+    DocumentHandler,
+    GroupChatCreatedHandler,
+    LeftChatMemberHandler,
+    LocationHandler,
+    MessageHandler,
+    NewChatMembersHandler,
+    NewChatPhotoHandler,
+    PhotoHandler,
+    TextHandler,
+    VoiceHandler,
+    CallbackQueryHandlerProps,
+    ChatMemberHandlerProps,
+    MessageMetadataHandlerProps
+} from "../src";
 
 @Controller()
 export class TestController {
 
-  constructor(
-    @inject(TELEGRAM_API) private readonly bot: TelegramAPI
-  ) {}
+    constructor(
+        @inject(TELEGRAM_API) private readonly bot: TelegramAPI
+    ) {}
 
 //   @MessageHandler()
 //   someMessageHandler({message, metadata}: MessageMetadataHandlerProps): void {
@@ -39,12 +37,12 @@ export class TestController {
 //     // console.log("Metadata", metadata);
 //   }
 
-  @TextHandler("asda")
-  someMessageHandler({message, metadata}: MessageMetadataHandlerProps): void {
-    console.log("Text Handler!");
-    // console.log("Message", message);
-    // console.log("Metadata", metadata);
-  }
+    @TextHandler("asda")
+    someMessageHandler({message, metadata}: MessageMetadataHandlerProps): void {
+        console.log("Text Handler!");
+        // console.log("Message", message);
+        // console.log("Metadata", metadata);
+    }
 
 //   @CallbackQueryHandler()
 //   someCallbackQueryHandler({callbackQuery}: CallbackQueryHandlerProps): void {
