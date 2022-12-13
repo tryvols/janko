@@ -1,6 +1,6 @@
 {
     "name": "janko",
-    "version": "1.0.2",
+    "version": "1.0.18",
     "description": "Modern Framework to build awesome telegram bots",
     "scripts": {
         "build": "tsc",
