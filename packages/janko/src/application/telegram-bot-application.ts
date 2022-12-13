@@ -71,7 +71,7 @@ export class TelegramBotApplication {
 
     useMiddleware<T>(middleware: interfaces.Newable<Middleware<T>>, config?: T): void {
         // At first we register required dependencies that are using with inversify
-        middleware.prototype?.beforeInit?.(this.container, config);
+        Object.getPrototypeOf(middleware)?.beforeInit?.(this.container, config);
         const middlewareInstance = this.container.resolve<Middleware>(middleware);
         middlewareInstance.onInit?.(config);
         this.container.bind<Middleware<T>>(MIDDLEWARE).toConstantValue(middlewareInstance);
