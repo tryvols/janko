@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko-schedule-middleware",
+      "comment": "Complete publishing",
+      "type": "minor"
+    }
+  ],
+  "packageName": "janko-schedule-middleware"
+}
