@@ -27,7 +27,7 @@ jobs:
         run: node common/scripts/install-run-rush.js publish --apply --publish
       - name: Commit Updates
         run: |
-          if [[ $(git diff --quiet HEAD) ]]; then
+          if [[ $(git status -s) ]]; then
             git add * && git commit -m "Updates" && git push $ORIGIN main
           fi
 
