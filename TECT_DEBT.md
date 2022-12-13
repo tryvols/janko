@@ -13,6 +13,3 @@
 
 ## Iterare package migration
 - Move iterations to use iterare package (this will optimize time spending on chain iterations)
-
-## Init CI
-- It's really important to implement continious integration for the project
