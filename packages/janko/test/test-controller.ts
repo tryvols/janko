@@ -30,15 +30,15 @@ export class TestController {
         @inject(TELEGRAM_API) private readonly bot: TelegramAPI
     ) {}
 
-//   @MessageHandler()
-//   someMessageHandler({message, metadata}: MessageMetadataHandlerProps): void {
-//     console.log("Message Handler!");
-//     // console.log("Message", message);
-//     // console.log("Metadata", metadata);
-//   }
+    @MessageHandler()
+    someMessageHandler({message, metadata}: MessageMetadataHandlerProps): void {
+        console.log("Message Handler!");
+        // console.log("Message", message);
+        // console.log("Metadata", metadata);
+    }
 
     @TextHandler("asda")
-    someMessageHandler({message, metadata}: MessageMetadataHandlerProps): void {
+    someTextHandler({message, metadata}: MessageMetadataHandlerProps): void {
         console.log("Text Handler!");
         // console.log("Message", message);
         // console.log("Metadata", metadata);

@@ -1,6 +1,6 @@
 {
     "name": "janko-location-middleware",
-    "version": "1.0.0",
+    "version": "1.0.17",
     "description": "Location middleware for Janko framework",
     "scripts": {
         "build": "tsc",
@@ -26,8 +26,8 @@
     "homepage": "https://github.com/tryvols/janko#readme",
     "dependencies": {
         "inversify": "^6.0.1",
-        "reflect-metadata": "^0.1.13",
-        "janko": "workspace:*"
+        "janko": "workspace:*",
+        "reflect-metadata": "^0.1.13"
     },
     "devDependencies": {
         "@types/node": "^18.11.12",

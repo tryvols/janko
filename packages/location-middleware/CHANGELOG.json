@@ -1,0 +1,289 @@
+{
+  "name": "janko-location-middleware",
+  "entries": [
+    {
+      "version": "1.0.17",
+      "tag": "janko-location-middleware_v1.0.17",
+      "date": "Tue, 13 Dec 2022 02:19:13 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish verify"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.18`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.16",
+      "tag": "janko-location-middleware_v1.0.16",
+      "date": "Tue, 13 Dec 2022 02:16:53 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.17`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.15",
+      "tag": "janko-location-middleware_v1.0.15",
+      "date": "Tue, 13 Dec 2022 01:55:10 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.16`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.14",
+      "tag": "janko-location-middleware_v1.0.14",
+      "date": "Tue, 13 Dec 2022 01:49:55 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.15`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.13",
+      "tag": "janko-location-middleware_v1.0.13",
+      "date": "Tue, 13 Dec 2022 01:46:44 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.14`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.12",
+      "tag": "janko-location-middleware_v1.0.12",
+      "date": "Tue, 13 Dec 2022 01:45:46 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.13`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.11",
+      "tag": "janko-location-middleware_v1.0.11",
+      "date": "Tue, 13 Dec 2022 01:33:45 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.12`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.10",
+      "tag": "janko-location-middleware_v1.0.10",
+      "date": "Tue, 13 Dec 2022 01:31:57 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.11`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.9",
+      "tag": "janko-location-middleware_v1.0.9",
+      "date": "Tue, 13 Dec 2022 01:24:07 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.10`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.8",
+      "tag": "janko-location-middleware_v1.0.8",
+      "date": "Tue, 13 Dec 2022 01:22:55 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.9`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.7",
+      "tag": "janko-location-middleware_v1.0.7",
+      "date": "Tue, 13 Dec 2022 01:13:05 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.8`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.6",
+      "tag": "janko-location-middleware_v1.0.6",
+      "date": "Tue, 13 Dec 2022 01:11:40 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.7`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.5",
+      "tag": "janko-location-middleware_v1.0.5",
+      "date": "Tue, 13 Dec 2022 01:06:49 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.6`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.4",
+      "tag": "janko-location-middleware_v1.0.4",
+      "date": "Tue, 13 Dec 2022 00:57:52 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fourth publishing trial"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.5`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.3",
+      "tag": "janko-location-middleware_v1.0.3",
+      "date": "Tue, 13 Dec 2022 00:56:04 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Third publishing trial"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.4`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.2",
+      "tag": "janko-location-middleware_v1.0.2",
+      "date": "Tue, 13 Dec 2022 00:38:27 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Publishing trial"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.3`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.1",
+      "tag": "janko-location-middleware_v1.0.1",
+      "date": "Tue, 13 Dec 2022 00:35:03 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.0.2`"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko-location-middleware",
+      "comment": "Complete publishing",
+      "type": "minor"
+    }
+  ],
+  "packageName": "janko-location-middleware"
+}
