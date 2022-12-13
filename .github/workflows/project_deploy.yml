@@ -30,7 +30,9 @@ jobs:
       - name: Publish Updated Packages
         run: node common/scripts/install-run-rush.js publish --apply --publish
       - name: Commit Updates
-        if: git diff --quiet HEAD
-        run: git add * && git commit -m "Updates" && git push $ORIGIN main
+        run: |
+          if [[ git diff --quiet HEAD ]]; then
+            git add * && git commit -m "Updates" && git push $ORIGIN main
+          fi
 
   
