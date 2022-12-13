@@ -1,0 +1,49 @@
+name: Project Deploy
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Git config user
+        uses: snow-actions/git-config-user@v1.0.0
+        with:
+          name: tryvols
+          email: tryvols@gmail.com
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Verify Change Logs
+        run: node common/scripts/install-run-rush.js change --verify
+      - name: Rush Install
+        run: node common/scripts/install-run-rush.js install
+      - name: Rush rebuild
+        run: node common/scripts/install-run-rush.js rebuild --verbose
+  publish:
+    runs-on: ubuntu-latest
+    environment: Janko Production
+    env:
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      ORIGIN: https://${{ secrets.TOKEN_FOR_GITHUB }}@github.com/${{ github.repository }}.git
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Git config user
+        uses: snow-actions/git-config-user@v1.0.0
+        with:
+          name: ${{ secrets.CI_GIT_USER_USERNAME }}
+          email: ${{ secrets.CI_GIT_USER_EMAIL }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Publish Updated Packages
+        run: node common/scripts/install-run-rush.js publish --apply --publish
+      - name: Commit Updates
+        run: git add * && git commit -m "Updates" && git push $ORIGIN main
+
+  

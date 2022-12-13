@@ -1,7 +1,5 @@
 name: CI
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 jobs:
@@ -18,7 +16,7 @@ jobs:
           email: tryvols@gmail.com
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 14
       - name: Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
       - name: Rush Install

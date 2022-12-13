@@ -2,8 +2,8 @@
   "changes": [
     {
       "packageName": "janko-location-middleware",
-      "comment": "Complete publishing",
-      "type": "minor"
+      "comment": "Publish updates",
+      "type": "patch"
     }
   ],
   "packageName": "janko-location-middleware"
