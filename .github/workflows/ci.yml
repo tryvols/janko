@@ -5,6 +5,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Janko Production
     steps:
       - uses: actions/checkout@v3
         with:
@@ -12,8 +13,8 @@ jobs:
       - name: Git config user
         uses: snow-actions/git-config-user@v1.0.0
         with:
-          name: tryvols
-          email: tryvols@gmail.com
+          name: ${{ secrets.CI_GIT_USER_USERNAME }}
+          email: ${{ secrets.CI_GIT_USER_EMAIL }}
       - uses: actions/setup-node@v3
         with:
           node-version: 14
