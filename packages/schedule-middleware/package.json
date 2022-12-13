@@ -1,6 +1,6 @@
 {
     "name": "janko-schedule-middleware",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Schedule middleware for Janko framework",
     "scripts": {
         "build": "tsc",

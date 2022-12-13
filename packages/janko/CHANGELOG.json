@@ -1,0 +1,17 @@
+{
+  "name": "janko",
+  "entries": [
+    {
+      "version": "1.0.2",
+      "tag": "janko_v1.0.2",
+      "date": "Tue, 13 Dec 2022 00:35:03 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Minor update to publish new version"
+          }
+        ]
+      }
+    }
+  ]
+}

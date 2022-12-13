@@ -18,15 +18,18 @@
     "projects": [
         {
             "packageName": "janko",
-            "projectFolder": "packages/janko"
+            "projectFolder": "packages/janko",
+            "shouldPublish": true
         },
         {
             "packageName": "janko-location-middleware",
-            "projectFolder": "packages/location-middleware"
+            "projectFolder": "packages/location-middleware",
+            "shouldPublish": true
         },
         {
             "packageName": "janko-schedule-middleware",
-            "projectFolder": "packages/schedule-middleware"
+            "projectFolder": "packages/schedule-middleware",
+            "shouldPublish": true
         }
     ]
 }
