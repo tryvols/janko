@@ -19,12 +19,14 @@ import {
     ShippingQueryHandlerProps
 } from "../interfaces";
 import { assertNever } from "../helpers";
+import { LoggerService, LOGGER } from "../middleware";
 
 @injectable()
 export class ApplicationErrorHandler implements AppErrorHandler {
     constructor(
         @inject(TELEGRAM_API) private readonly telegramApi: TelegramAPI,
-        @inject(DEFAULT_ERROR) private readonly defaultError: interfaces.Newable<Error>
+        @inject(DEFAULT_ERROR) private readonly defaultError: interfaces.Newable<Error>,
+        @inject(LOGGER) private readonly logger: LoggerService
     ) {
         this.wrap = this.wrap.bind(this);
         this.onError = this.onError.bind(this);
@@ -44,7 +46,7 @@ export class ApplicationErrorHandler implements AppErrorHandler {
     }
 
     async onError(error: Error, data: HandlerData): Promise<void> {
-        console.log(error);
+        this.logger.error(error);
         const errorType = this.getErrorType(error);
         const errorMessage = this.getErrorMessage(errorType, error);
         await this.sendError(errorMessage, data);
@@ -94,8 +96,12 @@ export class ApplicationErrorHandler implements AppErrorHandler {
                 input_message_content: {message_text: ""}
             }]);
         }
-        // Here we need to log with logger,
-        // that error doesn't reach users
+
+        // Here we should also check for session
+        // where we can store user's chat data
+
+        // Here we need to log that error doesn't reach users
+        this.logger.log(`Current error doesn't reach users: ${error}`);
         return;
     }
 

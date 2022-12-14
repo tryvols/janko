@@ -4,7 +4,7 @@
     "description": "Modern Framework to build awesome telegram bots",
     "scripts": {
         "build": "tsc",
-        "test": "ts-node test/index.ts"
+        "test": ""
     },
     "repository": {
         "type": "git",
@@ -28,7 +28,9 @@
         "iterare": "^1.2.1",
         "lodash": "^4.17.21",
         "node-telegram-bot-api": "^0.60.0",
-        "reflect-metadata": "^0.1.13"
+        "reflect-metadata": "^0.1.13",
+        "winston": "^3.8.2",
+        "dayjs": "^1.11.7"
     },
     "devDependencies": {
         "@types/lodash": "^4.14.191",

@@ -36,9 +36,9 @@ export class MetadataScanner {
     ): R[] {
         const methodNames = new Set(this.getAllFilteredMethodNames(prototype));
         return iterate(methodNames)
-        .map(callback)
-        .filter(metadata => !isNil(metadata))
-        .toArray();
+            .map(callback)
+            .filter(metadata => !isNil(metadata))
+            .toArray();
     }
 
     *getAllFilteredMethodNames(prototype: {[key: string]: any;}): IterableIterator<string> {

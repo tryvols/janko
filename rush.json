@@ -30,6 +30,10 @@
             "packageName": "janko-schedule-middleware",
             "projectFolder": "packages/schedule-middleware",
             "shouldPublish": true
+        },
+        {
+            "packageName": "janko-example-app",
+            "projectFolder": "packages/example-app"
         }
     ]
 }
