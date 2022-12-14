@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko",
+      "comment": "Implement logging",
+      "type": "minor"
+    }
+  ],
+  "packageName": "janko"
+}

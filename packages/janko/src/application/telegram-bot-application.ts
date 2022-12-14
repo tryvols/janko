@@ -1,14 +1,17 @@
 import "reflect-metadata";
 import TelegramAPI from "node-telegram-bot-api";
 import { Container, interfaces } from "inversify";
+import { MetadataScanner } from "../core";
 import {
     Router,
     HandlersContainer,
     AvailableHandlersProvider,
     UnhandledEventValidator
 } from "../router";
-import { MetadataScanner } from "../core";
-import { AppErrorHandler, TelegramBotApplicationOptions } from "../interfaces";
+import {
+    AppErrorHandler,
+    TelegramBotApplicationOptions
+} from "../interfaces";
 import {
     APPLICATION_METADATA_ACCESSOR,
     AVAILABLE_HANDLERS_PROVIDER,
@@ -24,17 +27,28 @@ import {
     TELEGRAM_API,
     UNHANDLED_EVENT_VALIDATOR
 } from "../constants";
-import { LoggerService, LOGGER, LoggingMiddleware, Middleware, MiddlewareController } from "../middleware";
-import { DefaultError, ApplicationErrorHandler, HandlersAbsenceError } from "../errors";
+import {
+    LoggerService,
+    LOGGER,
+    LoggingMiddleware,
+    Middleware,
+    MiddlewareController
+} from "../middleware";
+import {
+    DefaultError,
+    ApplicationErrorHandler,
+    HandlersAbsenceError
+} from "../errors";
 import { ApplicationMetadataAccessor } from "../metadata";
 
 export class TelegramBotApplication {
     private readonly container = new Container();
 
     constructor(options: TelegramBotApplicationOptions) {
+        console.log(options.token);
+        this.useMiddleware(LoggingMiddleware, { isEnable: options.logging ?? true });
         this.initServices(options);
         this.initApplicationShutdownHandler();
-        this.initInternalMiddlewares(options);
 
         this.container.get<LoggerService>(LOGGER).log("Application initialized!");
     }
@@ -59,10 +73,6 @@ export class TelegramBotApplication {
         this.container.bind<interfaces.Newable<Error>>(HANDLERS_ABSENCE_ERROR).toConstructor(HandlersAbsenceError);
     }
 
-    private initInternalMiddlewares(options: TelegramBotApplicationOptions): void {
-        this.useMiddleware(LoggingMiddleware, { isEnable: !!options.logging });
-    }
-
     getContainer(): Container {
         return this.container;
     }
@@ -79,7 +89,7 @@ export class TelegramBotApplication {
 
     useMiddleware<T>(middleware: interfaces.Newable<Middleware<T>>, config?: T): void {
         // At first we register required dependencies that are using with inversify
-        Object.getPrototypeOf(middleware)?.beforeInit?.(this.container, config);
+        middleware.prototype?.beforeInit?.(this.container, config);
         const middlewareInstance = this.container.resolve<Middleware>(middleware);
         middlewareInstance.onInit?.(config);
         this.container.bind<Middleware<T>>(MIDDLEWARE).toConstantValue(middlewareInstance);

@@ -1,4 +1,5 @@
 import { injectable } from "inversify";
+import dayjs from "dayjs";
 import winston from "winston";
 import { LoggerService, LogLevel } from "../logging-interfaces";
 
@@ -7,13 +8,17 @@ export class ConsoleLogger implements LoggerService {
     private activeLevels: ReadonlyArray<LogLevel> = [];
 
     private readonly logger = winston.createLogger({
-        level: "info",
+        level: "verbose",
         transports: [
             new winston.transports.Console({
                 format: winston.format.combine(
+                    winston.format.colorize(),
                     winston.format.label({ label: "janko" }),
                     winston.format.timestamp(),
-                    winston.format.prettyPrint()
+                    winston.format.printf(info => {
+                        const date = dayjs(info.timestamp).format("DD/MM/YYYY HH:mm:ss");
+                        return `${info.label} ${date} [${info.level}]: ${info.message}`;
+                    })
                 )
             })
         ]

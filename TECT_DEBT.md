@@ -2,7 +2,7 @@
 - Need to prepare complete documentation for the framework
 
 ## Test coverage
-- Need to add tests
+- Need to add unit tests
 
 ## Complete example app
 - Implement routing example
