@@ -1,10 +1,10 @@
 {
-    "name": "janko-schedule-middleware",
-    "version": "1.1.2",
-    "description": "Schedule middleware for Janko framework",
+    "name": "janko-example-app",
+    "version": "1.0.0",
+    "description": "Janko example project",
     "scripts": {
         "build": "tsc",
-        "test": ""
+        "test": "ts-node index.ts"
     },
     "repository": {
         "type": "git",
@@ -15,8 +15,7 @@
         "Bot",
         "tg",
         "janko",
-        "schedule",
-        "middleware"
+        "example"
     ],
     "author": "TryVols",
     "license": "MIT",
@@ -25,27 +24,23 @@
     },
     "homepage": "https://github.com/tryvols/janko#readme",
     "dependencies": {
-        "cron": "^2.1.0",
         "inversify": "^6.0.1",
-        "iterare": "^1.2.1",
-        "janko": "workspace:*",
-        "lodash": "^4.17.21",
+        "node-telegram-bot-api": "^0.60.0",
         "reflect-metadata": "^0.1.13",
-        "uuid": "^9.0.0"
+        "janko": "workspace:*",
+        "janko-location-middleware": "workspace:*",
+        "janko-schedule-middleware": "workspace:*"
     },
     "devDependencies": {
-        "@types/cron": "^2.0.0",
-        "@types/lodash": "^4.14.191",
         "@types/node": "^18.11.12",
         "@types/node-telegram-bot-api": "^0.57.6",
-        "@types/uuid": "^9.0.0",
         "ts-node": "^10.9.1",
         "ts-node-dev": "^2.0.0",
         "tslib": "^2.4.1",
-        "tslint": "^6.1.3",
         "typescript": "^4.9.4"
     },
     "engines": {
         "node": "14.x"
     }
 }
+  

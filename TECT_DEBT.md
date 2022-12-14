@@ -4,9 +4,10 @@
 ## Test coverage
 - Need to add tests
 
-## Logging
-- Need to add logger interface
-- Need to inject logging into the handling flow
+## Complete example app
+- Implement routing example
+- Implement location example
+- Implement schedule example
 
 ## Cleanup exported interface
 - Remove unnecessary exported interfaces
