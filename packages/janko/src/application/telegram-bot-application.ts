@@ -24,7 +24,7 @@ import {
     TELEGRAM_API,
     UNHANDLED_EVENT_VALIDATOR
 } from "../constants";
-import { Middleware, MiddlewareController } from "../middleware";
+import { LoggerService, LOGGER, LoggingMiddleware, Middleware, MiddlewareController } from "../middleware";
 import { DefaultError, ApplicationErrorHandler, HandlersAbsenceError } from "../errors";
 import { ApplicationMetadataAccessor } from "../metadata";
 
@@ -34,6 +34,9 @@ export class TelegramBotApplication {
     constructor(options: TelegramBotApplicationOptions) {
         this.initServices(options);
         this.initApplicationShutdownHandler();
+        this.initInternalMiddlewares(options);
+
+        this.container.get<LoggerService>(LOGGER).log("Application initialized!");
     }
 
     private initServices(options: TelegramBotApplicationOptions) {
@@ -56,6 +59,10 @@ export class TelegramBotApplication {
         this.container.bind<interfaces.Newable<Error>>(HANDLERS_ABSENCE_ERROR).toConstructor(HandlersAbsenceError);
     }
 
+    private initInternalMiddlewares(options: TelegramBotApplicationOptions): void {
+        this.useMiddleware(LoggingMiddleware, { isEnable: !!options.logging });
+    }
+
     getContainer(): Container {
         return this.container;
     }
@@ -63,6 +70,7 @@ export class TelegramBotApplication {
     run(): void {
         // Router is the main node of the application
         this.container.get(ROUTER);
+        this.container.get<LoggerService>(LOGGER).log("Application started!");
     }
 
     registerController<T>(controller: interfaces.Newable<T>): void {
@@ -81,6 +89,7 @@ export class TelegramBotApplication {
         process.on("SIGTERM", () => {
             const middleware = this.container.getAll<Middleware>(MIDDLEWARE);
             middleware.forEach(m => m?.onDestroy?.());
+            this.container.get<LoggerService>(LOGGER).log("Application destroyed!");
         });
     }
 }

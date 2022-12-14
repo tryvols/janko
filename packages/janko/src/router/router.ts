@@ -1,9 +1,8 @@
 import TelegramAPI from "node-telegram-bot-api";
-import { inject, injectable, interfaces } from "inversify";
+import { inject, injectable } from "inversify";
 import {
     AVAILABLE_HANDLERS_PROVIDER,
     ERROR_HANDLER,
-    HANDLERS_ABSENCE_ERROR,
     HandlerTypes,
     MIDDLEWARE_CONTROLLER,
     TELEGRAM_API,
@@ -27,9 +26,8 @@ import {
     PreCheckoutQueryHandlerProps,
     ShippingQueryHandlerProps
 } from "../interfaces";
-import { MiddlewareController } from "../middleware";
+import { LoggerService, LOGGER, MiddlewareController } from "../middleware";
 import { TelegramApiAdapter } from "./telegram-api-adapter";
-import { HandlersAbsenceError } from "../errors";
 import { AvailableHandlersProvider } from "./available-handlers-provider";
 import { UnhandledEventValidator } from "./unhandled-event-validator";
 
@@ -37,9 +35,9 @@ import { UnhandledEventValidator } from "./unhandled-event-validator";
 export class Router {
     constructor(
         @inject(MIDDLEWARE_CONTROLLER) private readonly middlewareController: MiddlewareController,
-        @inject(HANDLERS_ABSENCE_ERROR) private readonly handlersAbsenceError: interfaces.Newable<HandlersAbsenceError>,
         @inject(AVAILABLE_HANDLERS_PROVIDER) private readonly availableHandlersProvider: AvailableHandlersProvider,
         @inject(UNHANDLED_EVENT_VALIDATOR) private readonly unhandledEventValidator: UnhandledEventValidator,
+        @inject(LOGGER) private readonly logger: LoggerService,
         @inject(ERROR_HANDLER) errorHandler: AppErrorHandler,
         @inject(TELEGRAM_API) telegramApi: TelegramAPI
     ) {
@@ -54,11 +52,13 @@ export class Router {
     }
 
     private async eventHandler(data: HandlerData): Promise<void> {
+        this.logger.log(`${data.handlerDescriptor.type} event was detected!`);
+
         const executableHandlers = this.availableHandlersProvider.getHandlers(data);
 
-        // Validation for unhandled event (no one handler is available)
+        // Validation for unhandled event
         this.unhandledEventValidator.validate(data);
-            
+
         executableHandlers.forEach(handlerDescriptor => {
             const completeData = {...data, handlerDescriptor} as HandlerCompleteData;
             const handlerType = handlerDescriptor.type;

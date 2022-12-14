@@ -31,7 +31,9 @@ import {
 import {
     CONTROLLER,
     METADATA_SCANNER,
-    MetadataScanner
+    MetadataScanner,
+    LOGGER,
+    LoggerService
 } from "janko";
 import {
     SchedulerType,
@@ -47,7 +49,8 @@ export class ScheduleExplorer {
         @multiInject(CONTROLLER) private readonly controllers: object[],
         @inject(SCHEDULER_ORCHESTRATOR) private readonly schedulerOrchestrator: SchedulerOrchestrator,
         @inject(SCHEDULER_METADATA_ACCESSOR) private readonly metadataAccessor: SchedulerMetadataAccessor,
-        @inject(METADATA_SCANNER) private readonly metadataScanner: MetadataScanner
+        @inject(METADATA_SCANNER) private readonly metadataScanner: MetadataScanner,
+        @inject(LOGGER) private readonly logger: LoggerService
     ) {}
 
     explore() {
@@ -112,7 +115,7 @@ export class ScheduleExplorer {
             try {
                 await methodRef.call(instance, ...args);
             } catch (error) {
-                console.error(error);
+                this.logger.error(error);
             }
         };
     }
