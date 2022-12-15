@@ -28,7 +28,7 @@ jobs:
       - name: Commit Updates
         run: |
           if [[ $(git status -s) ]]; then
-            git add * && git commit -m "Updates" && git push $ORIGIN main
+            git add * && git commit -m "Updates" && git push $ORIGIN main -f
           fi
 
   
