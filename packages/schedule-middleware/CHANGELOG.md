@@ -1,6 +1,13 @@
 # Change Log - janko-schedule-middleware
 
-This log was last generated on Wed, 14 Dec 2022 21:16:06 GMT and should not be manually modified.
+This log was last generated on Thu, 15 Dec 2022 21:29:25 GMT and should not be manually modified.
+
+## 1.1.4
+Thu, 15 Dec 2022 21:29:25 GMT
+
+### Patches
+
+- Iterate migration
 
 ## 1.1.3
 Wed, 14 Dec 2022 21:16:06 GMT

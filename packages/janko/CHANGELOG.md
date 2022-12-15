@@ -1,6 +1,15 @@
 # Change Log - janko
 
-This log was last generated on Wed, 14 Dec 2022 21:16:06 GMT and should not be manually modified.
+This log was last generated on Thu, 15 Dec 2022 21:29:25 GMT and should not be manually modified.
+
+## 1.2.1
+Thu, 15 Dec 2022 21:29:25 GMT
+
+### Patches
+
+- Iterate migration
+- Improve logging
+- Improve logging
 
 ## 1.2.0
 Wed, 14 Dec 2022 21:16:06 GMT
