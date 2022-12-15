@@ -52,7 +52,7 @@ export class Router {
     }
 
     private async eventHandler(data: HandlerData): Promise<void> {
-        this.logger.log(`${data.handlerDescriptor.type} event was detected!`);
+        this.logger.log(`${data.handlerDescriptor.type} event detected`);
 
         const executableHandlers = this.availableHandlersProvider.getHandlers(data);
 

@@ -1,4 +1,6 @@
 import { TelegramBotApplication } from "janko";
+import { LocationMiddleware } from "janko-location-middleware";
+import { ScheduleMiddleware } from "janko-schedule-middleware";
 import { GeneralController } from "./general-controller";
 
 function bootstrap() {
@@ -7,6 +9,8 @@ function bootstrap() {
         polling: true
     });
     app.registerController(GeneralController);
+    app.useMiddleware(LocationMiddleware);
+    app.useMiddleware(ScheduleMiddleware);
     app.run();
 }
 bootstrap();

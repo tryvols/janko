@@ -16,7 +16,7 @@ export class ConsoleLogger implements LoggerService {
                     winston.format.label({ label: "janko" }),
                     winston.format.timestamp(),
                     winston.format.printf(info => {
-                        const date = dayjs(info.timestamp).format("DD/MM/YYYY HH:mm:ss");
+                        const date = dayjs(info.timestamp).format("HH:mm:ss");
                         return `${info.label} ${date} [${info.level}]: ${info.message}`;
                     })
                 )
