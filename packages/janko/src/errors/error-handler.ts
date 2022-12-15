@@ -102,7 +102,6 @@ export class ApplicationErrorHandler implements AppErrorHandler {
 
         // Here we need to log that error doesn't reach users
         this.logger.log(`Current error doesn't reach users: ${error}`);
-        return;
     }
 
     private getInlineQueryId(data: HandlerData): string | undefined {

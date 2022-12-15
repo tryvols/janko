@@ -87,7 +87,7 @@ export class ScheduleExplorer {
 
                 return this.schedulerOrchestrator.addTimeout(
                     timeoutFn,
-                    timeoutMetadata!.timeout,
+                    timeoutMetadata.timeout,
                     name,
                 );
             }
@@ -103,7 +103,7 @@ export class ScheduleExplorer {
 
                 return this.schedulerOrchestrator.addInterval(
                     intervalFn,
-                    intervalMetadata!.timeout,
+                    intervalMetadata.timeout,
                     name,
                 );
             }
