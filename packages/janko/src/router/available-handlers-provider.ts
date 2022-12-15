@@ -1,4 +1,5 @@
 import { inject, injectable } from "inversify";
+import iterate from "iterare";
 import { cloneDeep } from "lodash";
 import { HANDLERS_CONTAINER, HandlerTypes, MIDDLEWARE_CONTROLLER } from "../constants";
 import { assertNever } from "../helpers";
@@ -61,14 +62,15 @@ export class AvailableHandlersProvider {
         // This is needed to prevent mutations from the filtering functions
         const safeData = cloneDeep(data);
 
-        return handlers
+        return iterate(handlers)
             .filter(handlerDescriptor => this.shouldHandlerBeExecuted(handlerDescriptor, safeData))
             // It's important to filter handlers using middleware before validation
             // for unhandled event as middlewares can reject handler's execution
             // This time middleware only check if handler should exists and can't update data
             .filter(handlerDescriptor => {
                 return this.middlewareController.beforeHandling({...safeData, handlerDescriptor} as HandlerCompleteData)
-            });
+            })
+            .toArray();
     }
 
     private shouldHandlerBeExecuted(handlerDescriptor: HandlerDescriptor, data: HandlerData): boolean {

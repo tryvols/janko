@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko",
+      "comment": "Iterate migration",
+      "type": "patch"
+    }
+  ],
+  "packageName": "janko"
+}
