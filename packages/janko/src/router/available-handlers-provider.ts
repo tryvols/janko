@@ -173,9 +173,21 @@ export class AvailableHandlersProvider {
         return true;
     }
 
+    /**
+     * This method decides if text content fits to route.
+     * You can easily extend or override it by extending of the current class.
+     */
+    protected containRoute(handlerDescriptor: HandlerDescriptor, content?: string): boolean {
+        return !!content && content.search(handlerDescriptor.route) !== -1;
+    }
+
+    /**
+     * This method decides if event fits to route.
+     * You can extend or override it by extending of the current class.
+     */
     protected shouldHandlerBeExecutedByRoute(handlerDescriptor: HandlerDescriptor, data: HandlerData): boolean {
         const handlerType = data.handlerDescriptor.type;
-        const containRoute = (str?: string): boolean => !!str && str.search(handlerDescriptor.route) !== -1;
+        const containRoute = (content?: string): boolean => this.containRoute(handlerDescriptor, content);
 
         switch (handlerType) {
             // Message can contain all possible message-metadata handlers variants
