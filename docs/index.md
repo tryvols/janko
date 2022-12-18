@@ -17,4 +17,4 @@ To get started, you need to initialize your application with npm, yarn or any ot
 npm i janko
 ```
 
-That's it! Now you are ready to make your [first steps](overview/FirstSteps.md) with Janko.
+That's it! Now you are ready to make your [first steps](overview/FIRST_STEPS.md) with Janko.

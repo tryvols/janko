@@ -46,7 +46,6 @@ export class TelegramBotApplication {
     private readonly container = new Container();
 
     constructor(options: TelegramBotApplicationOptions) {
-        console.log(options.token);
         this.useMiddleware(LoggingMiddleware, { isEnable: options.logging ?? true });
         this.initServices(options);
         this.initApplicationShutdownHandler();

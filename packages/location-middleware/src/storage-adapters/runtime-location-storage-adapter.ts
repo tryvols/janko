@@ -1,11 +1,11 @@
 import { injectable } from "inversify";
-import { Location, LocationMiddlewareStorageAdapter } from "../interfaces";
+import { Location, LocationService } from "../interfaces";
 
 @injectable()
-export class RuntimeLocationStorageAdapter implements LocationMiddlewareStorageAdapter {
+export class RuntimeLocationStorageAdapter implements LocationService {
     private location: Location;
 
-    saveCurrentLocation(location: Location): void {
+    setCurrentLocation(location: Location): void {
         this.location = location;
     }
 

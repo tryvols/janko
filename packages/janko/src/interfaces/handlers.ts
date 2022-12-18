@@ -32,26 +32,17 @@ export type PollAnswerHandlerProps = Pick<HandlerProps, "pollAnswer">;
 export type PreCheckoutQueryHandlerProps = Pick<HandlerProps, "preCheckoutQuery">;
 export type ShippingQueryHandlerProps = Pick<HandlerProps, "shippingQuery">;
 
-/**
- * HandlerResult can contain any additional data
- * that middleware can use. To prevent conflicts - keys
- * should use symbols
- */
-export type IHandlerResult = void | Readonly<{
-    [key: symbol]: unknown;
-}>;
-
-export type IMessageMetadataHandler = (props: MessageMetadataHandlerProps) => IHandlerResult;
-export type IMessageHandler = (props: MessageHandlerProps) => IHandlerResult;
-export type IChatMemberHandler = (props: ChatMemberHandlerProps) => IHandlerResult;
-export type IErrorHandler = (props: ErrorHandlerProps) => IHandlerResult;
-export type ICallbackQueryHandler = (props: CallbackQueryHandlerProps) => IHandlerResult;
-export type IChatJoinRequestHandler = (props: ChatJoinRequestHandlerProps) => IHandlerResult;
-export type IChosenInlineResultHandler = (props: ChosenInlineResultHandlerProps) => IHandlerResult;
-export type IInlineQueryHandler = (props: InlineQueryHandlerProps) => IHandlerResult;
-export type IPollAnswerHandler = (props: PollAnswerHandlerProps) => IHandlerResult;
-export type IPreCheckoutQueryHandler = (props: PreCheckoutQueryHandlerProps) => IHandlerResult;
-export type IShippingQueryHandler = (props: ShippingQueryHandlerProps) => IHandlerResult;
+export type IMessageMetadataHandler = (props: MessageMetadataHandlerProps) => void;
+export type IMessageHandler = (props: MessageHandlerProps) => void;
+export type IChatMemberHandler = (props: ChatMemberHandlerProps) => void;
+export type IErrorHandler = (props: ErrorHandlerProps) => void;
+export type ICallbackQueryHandler = (props: CallbackQueryHandlerProps) => void;
+export type IChatJoinRequestHandler = (props: ChatJoinRequestHandlerProps) => void;
+export type IChosenInlineResultHandler = (props: ChosenInlineResultHandlerProps) => void;
+export type IInlineQueryHandler = (props: InlineQueryHandlerProps) => void;
+export type IPollAnswerHandler = (props: PollAnswerHandlerProps) => void;
+export type IPreCheckoutQueryHandler = (props: PreCheckoutQueryHandlerProps) => void;
+export type IShippingQueryHandler = (props: ShippingQueryHandlerProps) => void;
 
 export type IHandlers =
     | IMessageMetadataHandler

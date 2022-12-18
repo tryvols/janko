@@ -5,15 +5,13 @@ import {
     Middleware
 } from "janko";
 import {
-    LOCATION_MIDDLEWARE_STORAGE_ADAPTER,
-    LOCATION_MIDDLEWRE_METADATA_ACCESSOR,
-    NewLocation
+    LOCATION_SERVICE,
+    LOCATION_MIDDLEWRE_METADATA_ACCESSOR
 } from "./constants";
 import {
     Location,
     LocationMiddlewareConfig,
-    LocationMiddlewareResult,
-    LocationMiddlewareStorageAdapter
+    LocationService
 } from "./interfaces";
 import { LocationMiddlewareMetadataAccessor } from "./location-middleware-metadata-accessor";
 import { RuntimeLocationStorageAdapter } from "./storage-adapters/runtime-location-storage-adapter";
@@ -25,13 +23,13 @@ export class LocationMiddleware extends Middleware<LocationMiddlewareConfig> {
         container.bind<LocationMiddlewareMetadataAccessor>(LOCATION_MIDDLEWRE_METADATA_ACCESSOR)
             .to(LocationMiddlewareMetadataAccessor)
             .inSingletonScope();
-        container.bind<LocationMiddlewareStorageAdapter>(LOCATION_MIDDLEWARE_STORAGE_ADAPTER)
+        container.bind<LocationService>(LOCATION_SERVICE)
             .to(Adapter)
             .inSingletonScope();
     }
 
     constructor(
-        @inject(LOCATION_MIDDLEWARE_STORAGE_ADAPTER) private readonly locationStorage: LocationMiddlewareStorageAdapter,
+        @inject(LOCATION_SERVICE) private readonly locationService: LocationService,
         @inject(LOCATION_MIDDLEWRE_METADATA_ACCESSOR) private readonly metadataAccessor: LocationMiddlewareMetadataAccessor
     ) {
         super();
@@ -39,21 +37,15 @@ export class LocationMiddleware extends Middleware<LocationMiddlewareConfig> {
 
     onInit(config?: LocationMiddlewareConfig): void {
         if (config?.defaultLocation) {
-            this.locationStorage.saveCurrentLocation(config.defaultLocation);
+            this.locationService.setCurrentLocation(config.defaultLocation);
         }
     }
 
     beforeHandling(data: HandlerCompleteData, next: NextMiddleware): void {
         const handlerLocation = this.getLocationFromMetadata(data);
 
-        if (!handlerLocation || handlerLocation === this.locationStorage.getCurrentLocation()) {
+        if (!handlerLocation || handlerLocation === this.locationService.getCurrentLocation()) {
             next();
-        }
-    }
-
-    afterHandling(data: HandlerCompleteData, result: LocationMiddlewareResult): void {
-        if (result[NewLocation]) {
-            this.locationStorage.saveCurrentLocation(result[NewLocation], data);
         }
     }
 
