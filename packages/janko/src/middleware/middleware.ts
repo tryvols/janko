@@ -1,5 +1,5 @@
 import { Container, injectable } from "inversify";
-import { HandlerCompleteData, IHandlerResult } from "../interfaces";
+import { HandlerCompleteData } from "../interfaces";
 import { IMiddleware, NextMiddleware } from "../interfaces/middleware";
 
 @injectable()
@@ -15,7 +15,7 @@ export abstract class Middleware<T = any> implements IMiddleware<T> {
      * This helps to handle in middleware some additional data which is result of handler's work
      * or add some logic to finish something based on timeline
      */
-    afterHandling?(data: HandlerCompleteData, result: IHandlerResult): void;
+    afterHandling?(data: HandlerCompleteData): void;
 
     /**
      * Allows to add to inversify entities that may use other inversify bindings.

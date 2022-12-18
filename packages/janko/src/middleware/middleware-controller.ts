@@ -1,6 +1,6 @@
 import { injectable, multiInject, optional } from "inversify";
 import { MIDDLEWARE } from "../constants";
-import { HandlerCompleteData, IHandlerResult } from "../interfaces";
+import { HandlerCompleteData } from "../interfaces";
 import { Middleware } from "./middleware";
 
 @injectable()
@@ -46,7 +46,7 @@ export class MiddlewareController {
      * @param data - request data
      * @returns true if request should be handled and false if shoudn't
      */
-    afterHandling(data: HandlerCompleteData, result: IHandlerResult = {}): void {
-        this.middleware.forEach(m => m?.afterHandling?.(data, result));
+    afterHandling(data: HandlerCompleteData): void {
+        this.middleware.forEach(m => m?.afterHandling?.(data));
     }
 }

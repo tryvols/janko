@@ -18,7 +18,6 @@ import {
     ErrorHandlerProps,
     HandlerCompleteData,
     HandlerData,
-    IHandlerResult,
     InlineQueryHandlerProps,
     MessageHandlerProps,
     MessageMetadataHandlerProps,
@@ -68,9 +67,6 @@ export class Router {
             // This is needed to do it only once.
             this.middlewareController.beforeHandling(completeData);
 
-            // Contains result of handler's work
-            let result: IHandlerResult;
-
             switch(handlerType) {
                 case HandlerTypes.Animation:
                 case HandlerTypes.Message:
@@ -107,7 +103,7 @@ export class Router {
                 case HandlerTypes.VideoNote:
                 case HandlerTypes.Voice:
                 case HandlerTypes.WebAppData:
-                    result = handlerDescriptor.handler(data as MessageMetadataHandlerProps);
+                    handlerDescriptor.handler(data as MessageMetadataHandlerProps);
                     break;
                 case HandlerTypes.ChannelPost:
                 case HandlerTypes.EditedChannelPost:
@@ -116,43 +112,43 @@ export class Router {
                 case HandlerTypes.EditedMessage:
                 case HandlerTypes.EditedMessageCaption:
                 case HandlerTypes.EditedMessageText:
-                    result = handlerDescriptor.handler(data as MessageHandlerProps);
+                    handlerDescriptor.handler(data as MessageHandlerProps);
                     break;
                 case HandlerTypes.ChatMember:
                 case HandlerTypes.MyChatMember:
-                    result = handlerDescriptor.handler(data as ChatMemberHandlerProps);
+                    handlerDescriptor.handler(data as ChatMemberHandlerProps);
                     break;
                 case HandlerTypes.Error:
                 case HandlerTypes.PollingError:
                 case HandlerTypes.WebhookError:
-                    result = handlerDescriptor.handler(data as ErrorHandlerProps);
+                    handlerDescriptor.handler(data as ErrorHandlerProps);
                     break;
                 case HandlerTypes.CallbackQuery:
-                    result = handlerDescriptor.handler(data as CallbackQueryHandlerProps);
+                    handlerDescriptor.handler(data as CallbackQueryHandlerProps);
                     break;
                 case HandlerTypes.ChatJoinRequest:
-                    result = handlerDescriptor.handler(data as ChatJoinRequestHandlerProps);
+                    handlerDescriptor.handler(data as ChatJoinRequestHandlerProps);
                     break;
                 case HandlerTypes.ChosenInlineResult:
-                    result = handlerDescriptor.handler(data as ChosenInlineResultHandlerProps);
+                    handlerDescriptor.handler(data as ChosenInlineResultHandlerProps);
                     break;
                 case HandlerTypes.InlineQuery:
-                    result = handlerDescriptor.handler(data as InlineQueryHandlerProps);
+                    handlerDescriptor.handler(data as InlineQueryHandlerProps);
                     break;
                 case HandlerTypes.PollAnswer:
-                    result = handlerDescriptor.handler(data as PollAnswerHandlerProps);
+                    handlerDescriptor.handler(data as PollAnswerHandlerProps);
                     break;
                 case HandlerTypes.PreCheckoutQuery:
-                    result = handlerDescriptor.handler(data as PreCheckoutQueryHandlerProps);
+                    handlerDescriptor.handler(data as PreCheckoutQueryHandlerProps);
                     break;
                 case HandlerTypes.ShippingQuery:
-                    result = handlerDescriptor.handler(data as ShippingQueryHandlerProps);
+                    handlerDescriptor.handler(data as ShippingQueryHandlerProps);
                     break;
                 default:
                     assertNever(handlerType);
             }
 
-            this.middlewareController.afterHandling(completeData, result);
+            this.middlewareController.afterHandling(completeData);
         });
     }
 }

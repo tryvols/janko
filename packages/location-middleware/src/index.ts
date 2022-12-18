@@ -1,6 +1,6 @@
 import "reflect-metadata";
 
-export {NewLocation} from "./constants";
+export {LOCATION_SERVICE} from "./constants";
 export * from "./decorators";
 export * from "./location-middleware";
 export * from "./storage-adapters";

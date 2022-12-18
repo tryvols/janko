@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko-location-middleware",
+      "comment": "Improve location middleware",
+      "type": "patch"
+    }
+  ],
+  "packageName": "janko-location-middleware"
+}
