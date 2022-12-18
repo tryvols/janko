@@ -1,6 +1,13 @@
 # Change Log - janko
 
-This log was last generated on Thu, 15 Dec 2022 21:29:25 GMT and should not be manually modified.
+This log was last generated on Sun, 18 Dec 2022 19:12:12 GMT and should not be manually modified.
+
+## 1.2.2
+Sun, 18 Dec 2022 19:12:12 GMT
+
+### Patches
+
+- Improve middleware
 
 ## 1.2.1
 Thu, 15 Dec 2022 21:29:25 GMT
