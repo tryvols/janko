@@ -1,5 +1,6 @@
 # Janko.js
 Progressive [Node.js](http://nodejs.org/) Framework to build efficient and scalable Telegram Bot applications.
+
 ![npm](https://img.shields.io/npm/v/janko)
 ![NPM](https://img.shields.io/npm/l/janko)
 ![npm](https://img.shields.io/npm/dm/janko)
