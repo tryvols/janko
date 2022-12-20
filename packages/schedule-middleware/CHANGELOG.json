@@ -2,6 +2,18 @@
   "name": "janko-schedule-middleware",
   "entries": [
     {
+      "version": "1.1.6",
+      "tag": "janko-schedule-middleware_v1.1.6",
+      "date": "Tue, 20 Dec 2022 23:12:04 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"janko\" to `1.2.3`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.5",
       "tag": "janko-schedule-middleware_v1.1.5",
       "date": "Sun, 18 Dec 2022 19:12:12 GMT",

@@ -2,6 +2,18 @@
   "name": "janko",
   "entries": [
     {
+      "version": "1.2.3",
+      "tag": "janko_v1.2.3",
+      "date": "Tue, 20 Dec 2022 23:12:04 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add middleware registry"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.2.2",
       "tag": "janko_v1.2.2",
       "date": "Sun, 18 Dec 2022 19:12:12 GMT",
