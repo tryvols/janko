@@ -1,6 +1,13 @@
 # Change Log - janko
 
-This log was last generated on Tue, 20 Dec 2022 23:12:04 GMT and should not be manually modified.
+This log was last generated on Tue, 20 Dec 2022 23:19:15 GMT and should not be manually modified.
+
+## 1.2.4
+Tue, 20 Dec 2022 23:19:15 GMT
+
+### Patches
+
+- Fix typing
 
 ## 1.2.3
 Tue, 20 Dec 2022 23:12:04 GMT

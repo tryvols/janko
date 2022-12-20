@@ -1,6 +1,11 @@
 # Change Log - janko-location-middleware
 
-This log was last generated on Tue, 20 Dec 2022 23:12:04 GMT and should not be manually modified.
+This log was last generated on Tue, 20 Dec 2022 23:19:15 GMT and should not be manually modified.
+
+## 1.1.7
+Tue, 20 Dec 2022 23:19:15 GMT
+
+_Version update only_
 
 ## 1.1.6
 Tue, 20 Dec 2022 23:12:04 GMT
