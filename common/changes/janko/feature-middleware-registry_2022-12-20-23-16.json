@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko",
+      "comment": "Fix typing",
+      "type": "patch"
+    }
+  ],
+  "packageName": "janko"
+}

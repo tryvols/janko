@@ -18,5 +18,5 @@ export interface MiddlewareDescriptor<T = any> {
 };
 
 export interface RegisterMiddlewareOptions {
-    applyImmediately: boolean;
+    applyImmediately?: boolean;
 }
