@@ -9,6 +9,7 @@ export const METADATA_SCANNER = Symbol("metadata-scanner");
 export const APPLICATION_METADATA_ACCESSOR = Symbol("application-metadata-accessor");
 export const AVAILABLE_HANDLERS_PROVIDER = Symbol("available-handlers-provider");
 export const UNHANDLED_EVENT_VALIDATOR = Symbol("unhandles-event-validator");
+export const MIDDLEWARE_REGISTRY = Symbol("middleware-registry");
 // Errors
 export const DEFAULT_ERROR = Symbol("default-error");
 export const HANDLERS_ABSENCE_ERROR = Symbol("handlers-absence-error");

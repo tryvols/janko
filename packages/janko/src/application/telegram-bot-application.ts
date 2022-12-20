@@ -10,6 +10,7 @@ import {
 } from "../router";
 import {
     AppErrorHandler,
+    RegisterMiddlewareOptions,
     TelegramBotApplicationOptions
 } from "../interfaces";
 import {
@@ -23,6 +24,7 @@ import {
     METADATA_SCANNER,
     MIDDLEWARE,
     MIDDLEWARE_CONTROLLER,
+    MIDDLEWARE_REGISTRY,
     ROUTER,
     TELEGRAM_API,
     UNHANDLED_EVENT_VALIDATOR
@@ -40,17 +42,26 @@ import {
     HandlersAbsenceError
 } from "../errors";
 import { ApplicationMetadataAccessor } from "../metadata";
-import { getClassName } from "../helpers";
+import { MiddlewareRegistry } from "../middleware/middleware-registry";
 
 export class TelegramBotApplication {
     private readonly container = new Container();
 
     constructor(options: TelegramBotApplicationOptions) {
-        this.useMiddleware(LoggingMiddleware, { isEnable: options.logging ?? true });
+        this.initMiddleware(options);
         this.initServices(options);
         this.initApplicationShutdownHandler();
-
         this.logger.log("Application initialized!");
+    }
+
+    private initMiddleware(options: TelegramBotApplicationOptions) {
+        this.container.bind<MiddlewareRegistry>(MIDDLEWARE_REGISTRY).toDynamicValue(ctx => {
+            return new MiddlewareRegistry(ctx.container);
+        }).inSingletonScope();
+        this.useMiddleware(LoggingMiddleware, {
+            applyImmediately: true,
+            isEnable: options.logging ?? true
+        });
     }
 
     private initServices(options: TelegramBotApplicationOptions) {
@@ -78,6 +89,9 @@ export class TelegramBotApplication {
     }
 
     run(): void {
+        // We are applying middleware exactly before the application has started
+        // to prevent any time-based issues
+        this.middlewareRegistry.applyAllMiddleware();
         // Router is the main node of the application
         this.container.get(ROUTER);
         this.logger.log("Application started!");
@@ -87,13 +101,11 @@ export class TelegramBotApplication {
         this.container.bind<T>(CONTROLLER).to(controller);
     }
 
-    useMiddleware<T>(middleware: interfaces.Newable<Middleware<T>>, config?: T): void {
-        // At first we register required dependencies that are using with inversify
-        middleware.prototype?.beforeInit?.(this.container, config);
-        const middlewareInstance = this.container.resolve<Middleware>(middleware);
-        middlewareInstance.onInit?.(config);
-        this.container.bind<Middleware<T>>(MIDDLEWARE).toConstantValue(middlewareInstance);
-        this.logger.log(`Inited ${getClassName(middleware)} middleware.`);
+    useMiddleware<T>(
+        middleware: interfaces.Newable<Middleware<T>>,
+        config?: RegisterMiddlewareOptions & T
+    ): void {
+        this.middlewareRegistry.registerMiddleware(middleware, config);
     }
 
     private initApplicationShutdownHandler() {
@@ -106,5 +118,9 @@ export class TelegramBotApplication {
 
     private get logger(): LoggerService {
         return this.container.get<LoggerService>(LOGGER);
+    }
+
+    private get middlewareRegistry(): MiddlewareRegistry {
+        return this.container.get<MiddlewareRegistry>(MIDDLEWARE_REGISTRY);
     }
 }

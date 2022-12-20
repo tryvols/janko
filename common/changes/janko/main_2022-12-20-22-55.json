@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "janko",
+      "comment": "Add middleware registry",
+      "type": "patch"
+    }
+  ],
+  "packageName": "janko"
+}
