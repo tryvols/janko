@@ -1,12 +1,5 @@
-theme: jekyll-theme-minimal
 title: Janko.js
 description: A progressive Telegram Bots framework.
-plugins:
-  - jekyll-relative-links
-relative_links:
-  enabled: true
-  collections: true
-include:
-  - index.md
-  - overview/FIRST_STEPS.md
-  
+remote_theme: pmarsceill/just-the-docs
+
+url: https://www.jankojs.com
