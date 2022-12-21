@@ -73,3 +73,7 @@ common/autoinstallers/*/.npmrc
 .heft
 
 build/
+
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
