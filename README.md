@@ -5,6 +5,9 @@ Progressive [Node.js](http://nodejs.org/) Framework to build efficient and scala
 ![NPM](https://img.shields.io/npm/l/janko)
 ![npm](https://img.shields.io/npm/dm/janko)
 
+## ⚠️ ALPHA STATUS DISCLAIMER
+> This project is my first open source project and is in active development stage as well -- please be patient -- @tryvols
+
 ## Description
 Janko (Janko.js) is a framework for building efficient, scalable [Telegram Bot](https://core.telegram.org/bots/api) applications. It uses [Typescript](http://www.typescriptlang.org/) and combines best practices from OOP (Object Oriented Programming) and FP (Functional Programming).
 

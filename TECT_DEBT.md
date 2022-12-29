@@ -54,3 +54,15 @@
 ## Middleware dependencies and relations
 - Different middleware can be dependent on each other. It's required to provide such an option.
 - For example, location middleware can be dependent on session middleware, to make it possible divide location handling for the different users.
+
+## Customize documentation color schema
+- Logo is based on red color, but the site is using violet, so it looks inconsystent.
+
+## Remove required Node version 14.x from packages
+- Now each package require 14 version of Node.js
+
+## Improve location middleware
+- Now Location middleware is designed in vacuum, but it's not enough data to narrow location for a specific user (need to pass response (message) data with location to a location service)
+
+## Migration to NestJS
+- Figured out that Telegraf and grammY already allow to use them within NestJS, but there is still a problem. They provide simple api and simple functions, but they aren't a really frameworks, so it makes sense to extend their functionality with ecosystem that would allow much more flaxibility and abilities.
