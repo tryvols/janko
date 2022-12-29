@@ -13,7 +13,7 @@ Janko provides an out-of-the-box Telegram Bot application architecture which all
 # Installation
 To get started, you need to initialize your application with npm, yarn or any other package manager and install the main Janko package using the following command:
 
-```
+```bash
 npm i janko
 ```
 
