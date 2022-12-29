@@ -10,5 +10,5 @@ Use this commands to execute site locally:
 ```
 cd docs
 bundle install
-bundle exec jekyll 
+bundle exec jekyll serve
 ```
